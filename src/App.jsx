@@ -3,13 +3,14 @@ import Home from "./pages/Home";
 import Portal from "./pages/Portal";
 import Internships from "./pages/internships";
 import InternshipDetails from "./pages/internshipDetails";
+import Jobs from "./pages/Jobs";
 
 import "./styles/style.css";
 import "./styles/portal.css";
 
 export default function App() {
   const [route, setRoute] = useState(
-    window.location.hash.slice(1) || "/"
+    () => window.location.hash.slice(1) || "/"
   );
 
   useEffect(() => {
@@ -25,15 +26,26 @@ export default function App() {
     };
   }, []);
 
-  if (route === "/") {
+  const [pathname, queryString = ""] = route.split("?");
+  const params = new URLSearchParams(queryString);
+
+  if (pathname === "/") {
     return <Home />;
   }
 
-  if (route === "/internships") {
+  if (pathname === "/jobs") {
+    const filter = params.get("filter") || "all";
+
+    return <Jobs key={filter} filter={filter} />;
+  }
+
+  if (pathname === "/internships") {
     return <Internships />;
   }
 
-  const detailsMatch = route.match(/^\/internship\/([^/]+)$/);
+  const detailsMatch = pathname.match(
+    /^\/internship\/([^/]+)$/
+  );
 
   if (detailsMatch) {
     return (

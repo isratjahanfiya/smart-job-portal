@@ -6,8 +6,13 @@ import {
   FaBell,
   FaChevronDown,
   FaGraduationCap,
+  FaSearch,
+  FaBriefcase,
+  FaCalendarAlt,
+  FaClock,
+  FaFileContract,
+  FaLandmark,
 } from "react-icons/fa";
-
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -31,9 +36,59 @@ function Navbar() {
             Home
           </a>
 
-          <a href="#/jobs">
-            Jobs <FaChevronDown className="small-icon" />
-          </a>
+      <div className="jobs-nav-dropdown">
+  <button className="jobs-nav-trigger" type="button">
+    Jobs <FaChevronDown className="small-icon" />
+  </button>
+
+  <div className="jobs-mega-menu">
+    <p className="jobs-menu-label">JOBS</p>
+
+    <div className="jobs-menu-grid">
+      <a href="#/jobs?filter=all">
+        <span className="jobs-menu-icon">
+          <FaSearch />
+        </span>
+        General Search
+      </a>
+
+      <a href="#/jobs?filter=new">
+        <span className="jobs-menu-icon">
+          <FaBriefcase />
+        </span>
+        New Jobs
+      </a>
+
+      <a href="#/jobs?filter=deadline">
+        <span className="jobs-menu-icon">
+          <FaCalendarAlt />
+        </span>
+        Deadline Tomorrow
+      </a>
+
+      <a href="#/jobs?filter=part-time">
+        <span className="jobs-menu-icon">
+          <FaClock />
+        </span>
+        Part Time Jobs
+      </a>
+
+      <a href="#/jobs?filter=contract">
+        <span className="jobs-menu-icon">
+          <FaFileContract />
+        </span>
+        Contractual Jobs
+      </a>
+
+      <a href="#/jobs?filter=government">
+        <span className="jobs-menu-icon">
+          <FaLandmark />
+        </span>
+        Government Jobs
+      </a>
+    </div>
+  </div>
+</div>
 
          <a href="#/internships">Internships</a>
 
