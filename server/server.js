@@ -7,15 +7,65 @@ const cors = require("cors");
 const pool = require("./config/postgres");
 const connectMongo = require("./config/mongo");
 const authRoutes = require("./routes/auth");
+const {
+  authenticate,
+  authorize
+} = require("./middleware/auth");
 
 const app = express();
 
+
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175"
+  ]
 }));
+
 
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+
+app.get("/api/auth/me", authenticate, (req, res) => {
+  res.json({ user: req.user });
+});
+
+app.get(
+  "/api/student/dashboard",
+  authenticate,
+  authorize("student"),
+  (req, res) => {
+    res.json({
+      message: "Student dashboard access granted",
+      user: req.user
+    });
+  }
+);
+
+app.get(
+  "/api/recruiter/dashboard",
+  authenticate,
+  authorize("recruiter"),
+  (req, res) => {
+    res.json({
+      message: "Recruiter dashboard access granted",
+      user: req.user
+    });
+  }
+);
+
+app.get(
+  "/api/admin/dashboard",
+  authenticate,
+  authorize("admin"),
+  (req, res) => {
+    res.json({
+      message: "Admin dashboard access granted",
+      user: req.user
+    });
+  }
+);
 
 // Test Route
 app.get("/", (req, res) => {

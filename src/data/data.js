@@ -1,0 +1,81 @@
+export const jobs = [
+  {
+    id: 1,
+    company: "TechNova",
+    title: "Software Engineer",
+    location: "Dhaka",
+    salary: "40,000 - 60,000",
+    type: "Full Time",
+    badgeClass: "green",
+    skills: ["React", "Node.js", "MySQL"],
+    deadline: "28 Sep 2026",
+    match: 90,
+  },
+
+  {
+    id: 2,
+    company: "DigitalSoft",
+    title: "Frontend Developer",
+    location: "Dhaka",
+    salary: "50,000 - 70,000",
+    type: "Hybrid",
+    badgeClass: "blue",
+    skills: ["HTML", "CSS", "JavaScript"],
+    deadline: "25 Sep 2026",
+    match: 85,
+  },
+
+  {
+    id: 3,
+    company: "CreativeHub",
+    title: "UI/UX Designer",
+    location: "Dhaka",
+    salary: "35,000 - 50,000",
+    type: "Onsite",
+    badgeClass: "orange",
+    skills: ["Figma", "UI/UX", "Design"],
+    deadline: "30 Sep 2026",
+    match: 78,
+  },
+];
+
+export const internships = [
+  {
+    id: 4,
+    company: "MarketLab",
+    title: "Marketing Intern",
+    location: "Dhaka",
+    salary: "15,000 Monthly",
+    type: "Internship",
+    badgeClass: "purple",
+    skills: ["Marketing", "Research", "Content"],
+    deadline: "30 Sep 2026",
+    match: 88,
+  },
+
+  {
+    id: 5,
+    company: "DataEdge",
+    title: "Research Intern",
+    location: "Dhaka",
+    salary: "10,000 Monthly",
+    type: "Internship",
+    badgeClass: "purple",
+    skills: ["Research", "Excel", "Report"],
+    deadline: "28 Sep 2026",
+    match: 82,
+  },
+
+  {
+    id: 6,
+    company: "AnalyticsPro",
+    title: "Data Analyst Intern",
+    location: "Remote",
+    salary: "20,000 Monthly",
+    type: "Internship",
+    badgeClass: "purple",
+    skills: ["Excel", "Power BI", "Analytics"],
+    deadline: "22 Sep 2026",
+    match: 89,
+  },
+];
