@@ -1,0 +1,97 @@
+
+.sc-company-page {
+  max-width: 850px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.sc-company-header h2 {
+  font-size: 28px;
+  color: #123c34;
+  margin-bottom: 10px;
+}
+
+.sc-company-header p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.sc-company-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.sc-company-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-weight: 600;
+  color: #243746;
+}
+
+.sc-company-form input,
+.sc-company-form textarea,
+.sc-company-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: white;
+  color: #1e293b;
+  font: inherit;
+}
+
+.sc-company-form input:focus,
+.sc-company-form textarea:focus,
+.sc-company-form select:focus {
+  outline: 2px solid #159568;
+}
+
+.sc-company-form button {
+  padding: 16px;
+  background: #159568;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sc-company-form button:hover {
+  background: #107650;
+}
+
+.sc-company-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sc-company-success {
+  background: #e5f7eb;
+  color: #116b43;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 18px;
+}
+
+.sc-company-error {
+  background: #fff0f0;
+  color: #b91c1c;
+  padding: 14px;
+  border-radius: 9px;
+  margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+  .sc-company-page {
+    padding: 20px;
+  }
+}

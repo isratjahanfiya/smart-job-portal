@@ -1,0 +1,379 @@
+
+/* SmartCareer Authentication Page */
+
+.sc-auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  color: #102a43;
+  font-family: Arial, sans-serif;
+}
+
+.sc-auth-page * {
+  box-sizing: border-box;
+}
+
+/* Left Section */
+
+.sc-auth-left {
+  background: linear-gradient(145deg, #eaf4ef, #d0e8dd);
+  padding: 42px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sc-auth-brand {
+  color: #123e35;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.sc-auth-brand span {
+  color: #169969;
+}
+
+.sc-auth-hero {
+  text-align: center;
+}
+
+.sc-auth-visual {
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 45px 25px;
+  box-shadow: 0 12px 45px rgba(0, 75, 55, 0.07);
+}
+
+.sc-auth-visual-icon {
+  font-size: 88px;
+  margin-bottom: 20px;
+}
+
+.sc-auth-visual-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #134c3e;
+}
+
+.sc-auth-visual p {
+  color: #5a6c66;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 350px;
+  margin: 16px auto 0;
+}
+
+.sc-auth-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.sc-auth-steps button {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 110, 70, 0.08);
+  border-radius: 15px;
+  padding: 18px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: #102a43;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.sc-auth-steps button:hover {
+  background: #ffffff;
+  border-color: #169969;
+  transform: translateY(-3px);
+}
+
+.sc-auth-steps button:focus-visible {
+  outline: 3px solid #169969;
+  outline-offset: 3px;
+}
+
+.sc-auth-steps span {
+  color: #168f64;
+  font-weight: 800;
+  margin-right: 9px;
+}
+
+.sc-auth-left-footer {
+  color: #607d72;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Right Section */
+
+.sc-auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 35px;
+}
+
+.sc-auth-container {
+  width: 100%;
+  max-width: 510px;
+}
+
+.sc-auth-container h1 {
+  color: #102a43;
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+
+.sc-auth-subtitle {
+  color: #687786;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.sc-auth-tabs {
+  background: #edf0f2;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 6px;
+  gap: 4px;
+  margin-bottom: 36px;
+}
+
+.sc-auth-tabs button {
+  padding: 15px;
+  background: transparent;
+  border: none;
+  border-radius: 35px;
+  color: #566474;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sc-auth-tabs button.active {
+  background: #ffffff;
+  color: #126d51;
+  font-weight: 700;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Account Type Selection */
+
+.sc-auth-role-section h2,
+.sc-auth-form-section h2 {
+  font-size: 22px;
+  color: #102a43;
+  margin-bottom: 12px;
+}
+
+.sc-auth-role-section > p {
+  color: #667788;
+  margin-bottom: 25px;
+}
+
+.sc-auth-role-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 20px;
+  padding: 22px;
+  margin-bottom: 18px;
+  background: #ffffff;
+  border: 1.5px solid #dbe6e0;
+  border-radius: 17px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  color: inherit;
+}
+
+.sc-auth-role-card:hover {
+  background: #f0faf5;
+  border-color: #169969;
+  transform: translateY(-2px);
+}
+
+.sc-auth-role-icon {
+  background: #e9f5ef;
+  padding: 18px;
+  border-radius: 15px;
+  font-size: 30px;
+}
+
+.sc-auth-role-text {
+  flex: 1;
+}
+
+.sc-auth-role-text strong {
+  display: block;
+  color: #123e35;
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+
+.sc-auth-role-text small {
+  color: #667786;
+  font-size: 13px;
+  line-height: 1.5;
+  display: block;
+}
+
+.sc-auth-role-arrow {
+  font-size: 25px;
+  color: #159668;
+}
+
+/* Form Fields */
+
+.sc-auth-back {
+  color: #168a65;
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.sc-auth-field {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.sc-auth-field > span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sc-auth-field input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 53px;
+  padding: 13px 15px;
+  border: 1px solid #d2dce1;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  color: #102a43;
+  outline: none;
+}
+
+.sc-auth-field input:focus {
+  border-color: #169969;
+  box-shadow: 0 0 0 3px rgba(22, 153, 105, 0.1);
+}
+
+.sc-auth-password-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d2dce1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sc-auth-password-wrap:focus-within {
+  border-color: #169969;
+}
+
+.sc-auth-password-wrap input {
+  flex: 1;
+  border: none;
+  box-shadow: none;
+}
+
+.sc-auth-password-wrap button {
+  background: transparent;
+  border: none;
+  padding: 12px;
+  color: #168a65;
+  cursor: pointer;
+}
+
+.sc-auth-submit {
+  width: 100%;
+  background: #159568;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 17px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.sc-auth-submit:hover {
+  background: #107650;
+}
+
+.sc-auth-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.sc-auth-message {
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.sc-auth-message.success {
+  color: #116e49;
+  background: #eaf8ef;
+}
+
+.sc-auth-message.error {
+  color: #ad3030;
+  background: #fff0f0;
+}
+
+.sc-auth-bottom {
+  text-align: center;
+  margin-top: 30px;
+  color: #697786;
+}
+
+.sc-auth-bottom button {
+  border: none;
+  background: transparent;
+  color: #11875e;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 850px) {
+  .sc-auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .sc-auth-left {
+    padding: 25px;
+  }
+
+  .sc-auth-hero,
+  .sc-auth-left-footer {
+    display: none;
+  }
+
+  .sc-auth-right {
+    padding: 35px 20px;
+  }
+
+  .sc-auth-container h1 {
+    font-size: 29px;
+  }
+}

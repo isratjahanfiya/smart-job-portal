@@ -1,0 +1,11 @@
+import {useEffect,useState} from 'react';
+const URL='http://localhost:5000/api/admin/categories';
+export default function AdminCategories(){
+ const [rows,setRows]=useState([]),[name,setName]=useState(''),[message,setMessage]=useState(''),[busy,setBusy]=useState(false);
+ const headers=()=>({'Content-Type':'application/json',Authorization:`Bearer ${sessionStorage.getItem('sc-token')||''}`});
+ async function refresh(){try{const r=await fetch(URL,{headers:headers()});const d=await r.json();if(!r.ok)throw Error(d.error||'Unable to load categories');setRows(d)}catch(e){setMessage(e.message)}}
+ useEffect(()=>{refresh()},[]);
+ async function change(url,method,data){setBusy(true);try{const r=await fetch(url,{method,headers:headers(),body:JSON.stringify(data)});const d=await r.json();if(!r.ok)throw Error(d.error||'Unable to save');setMessage('Category saved successfully.');setName('');await refresh()}catch(e){setMessage(e.message)}finally{setBusy(false)}}
+ async function rename(row){const name=window.prompt('New category name',row.name);if(name&&name.trim()!==row.name)await change(`${URL}/${row._id}`,'PUT',{name:name.trim()})}
+ return <section className="portal-card"><h2>Manage Job Categories</h2><p>Add your own categories; recruiters will see active categories automatically. Existing jobs remain linked after renaming.</p>{message&&<p role="status">{message}</p>}<form onSubmit={e=>{e.preventDefault();if(name.trim())change(URL,'POST',{name:name.trim()})}} style={{display:'flex',gap:12,flexWrap:'wrap'}}><input aria-label="New job category" placeholder="e.g. Renewable Energy" value={name} onChange={e=>setName(e.target.value)} minLength={2} maxLength={90} required/><button disabled={busy}>Add Category</button></form><div style={{display:'grid',gap:10,marginTop:20}}>{rows.map(r=><div key={r._id} style={{display:'flex',gap:12,alignItems:'center',flexWrap:'wrap',justifyContent:'space-between'}}><span>{r.name} — {r.active?'Active':'Disabled'}</span><div style={{display:'flex',gap:8}}><button className="secondary" disabled={busy} onClick={()=>rename(r)}>Rename</button><button className="secondary" disabled={busy} onClick={()=>change(`${URL}/${r._id}`,'PATCH',{active:!r.active})}>{r.active?'Disable':'Enable'}</button></div></div>)}</div></section>
+}

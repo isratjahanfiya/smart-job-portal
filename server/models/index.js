@@ -1,0 +1,17 @@
+const mongoose=require('mongoose');
+const opts={timestamps:true};
+const User=mongoose.model('User',new mongoose.Schema({name:String,email:{type:String,unique:true,required:true,lowercase:true,trim:true},password_hash:{type:String,required:true},role:{type:String,enum:['student','recruiter','admin'],required:true}},opts));
+const StudentProfile=mongoose.model('StudentProfile',new mongoose.Schema({user_id:{type:String,unique:true},university:String,department:String,cgpa:Number,graduation_year:Number,phone:String,location:String,degree:String,skills:[String],languages:String,projects:String,certifications:String,achievements:String,experience:String,career_goal:String,interests:String,photo_data:String,cv_data:String,cv_name:String},opts));
+const Company=mongoose.model('Company',new mongoose.Schema({name:{type:String,required:true},description:String,industry:String,location:String,email:String,phone:String,website:String,verification_status:{type:String,default:'pending',enum:['pending','verified','rejected']},requester_id:String},opts));
+const CompanyRequest=mongoose.model('CompanyRequest',new mongoose.Schema({company_id:{type:String,required:true},requester_id:{type:String,required:true},status:{type:String,default:'pending',enum:['pending','approved','rejected']}},opts));
+const CompanyAccess=mongoose.model('CompanyAccess',new mongoose.Schema({company_id:String,recruiter_id:String},opts));
+CompanyAccess.schema.index({company_id:1,recruiter_id:1},{unique:true});
+const Category=mongoose.model('Category',new mongoose.Schema({name:{type:String,required:true,unique:true,trim:true,maxlength:90},active:{type:Boolean,default:true}},opts));
+const Job=mongoose.model('Job',new mongoose.Schema({company_id:String,recruiter_id:String,title:String,category:String,description:String,job_type:String,location:String,salary_min:Number,salary_max:Number,deadline:Date,required_qualifications:String,required_skills:[String],approval_status:{type:String,default:'pending',enum:['pending','approved','rejected']},is_active:{type:Boolean,default:true}},opts));
+const Application=mongoose.model('Application',new mongoose.Schema({job_id:String,student_id:String,applicant_name:String,applicant_email:String,phone:String,cover_letter:String,cv_storage_key:String,cv_original_name:String,status:{type:String,default:'Applied'},status_history:[{status:String,changed_at:Date,actor_role:String}],response:String,interview_at:Date,interview_location:String,email_status:{type:String,default:"not_requested"},email_sent_at:Date,applied_at:{type:Date,default:Date.now}},opts));
+Application.schema.index({job_id:1,student_id:1},{unique:true});
+const Notification=mongoose.model('Notification',new mongoose.Schema({user_id:String,type:String,message:String,isRead:{type:Boolean,default:false}},opts));
+const Bookmark=mongoose.model('Bookmark',new mongoose.Schema({user_id:{type:String,required:true},job_id:{type:String,required:true}},opts));
+Bookmark.schema.index({user_id:1,job_id:1},{unique:true});
+const Activity=mongoose.model('Activity',new mongoose.Schema({user_id:String,action:String,metadata:mongoose.Schema.Types.Mixed},opts));
+module.exports={Category,User,StudentProfile,Company,CompanyRequest,CompanyAccess,Job,Application,Notification,Bookmark,Activity};
